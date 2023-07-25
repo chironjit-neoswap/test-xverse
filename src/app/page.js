@@ -63,7 +63,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center p-24 flex-col">
+    <main className="flex min-h-screen items-center justify-center p-4 sm:p-8 lg:p-12 flex-col">
       <div className="mb-4">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={onConnectClick}>
           Connect
@@ -74,17 +74,25 @@ export default function Home() {
           Show wallet info
         </button>
       </div>
-      <div>
-        <br />
-        <div>Payment Address: {state.paymentAddress}</div>
-        <div>Payment Public Key: {state.paymentPubKey}</div>
-        <div>Address matches pubkey: {`${isValidPayment}`}</div>
-        <br />
-        <div>Ordinals Address: {state.ordinalsAddress}</div>
-        <div>Ordinals Public Key: {state.ordinalsPubKey}</div>
-        <div>Address matches pubkey: {`${isValidOrdinals}`}</div>
-
+      <div className="mb-4 flex flex-wrap justify-center">
+        <div className="my-4 lg:mx-4 w-full sm:w-auto flex flex-col sm:flex-row items-center">
+          <div className="w-1/2 sm:w-auto text-center">Payment Address:</div>
+          <div className="overflow-auto break-words w-1/2 sm:w-auto text-center">{state.paymentAddress}</div>
+          <div className="w-1/2 sm:w-auto text-center">Payment Public Key:</div>
+          <div className="overflow-auto break-words w-1/2 sm:w-auto text-center">{state.paymentPubKey}</div>
+          <div className="w-1/2 sm:w-auto text-center">Address matches pubkey:</div>
+          <div className="w-1/2 sm:w-auto text-center">{`${isValidPayment}`}</div>
+        </div>
+        <div className="my-4 lg:mx-4 w-full sm:w-auto flex flex-col sm:flex-row items-center">
+          <div className="w-1/2 sm:w-auto text-center">Ordinals Address:</div>
+          <div className="overflow-x-hidden break-words w-1/2 sm:w-auto text-center"> {state.ordinalsAddress}</div>
+          <div className="w-1/2 sm:w-auto text-center">Ordinals Public Key:</div>
+          <div className="overflow-auto break-words w-1/2 sm:w-auto text-center"> {state.ordinalsPubKey}</div>
+          <div className="w-1/2 sm:w-auto text-center">Address matches pubkey:</div>
+          <div className="w-1/2 sm:w-auto text-center">{`${isValidOrdinals}`}</div>
+        </div>
       </div>
+
     </main>
   );
 }
